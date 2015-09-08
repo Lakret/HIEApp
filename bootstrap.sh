@@ -22,6 +22,9 @@ sudo apt-get install -y inotify-tools
 sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | sudo NVM_DIR=/usr/local/nvm bash
 nvm install 0.12
 
+# Bower
+sudo npm install -g bower
+
 # Install postgres
 sudo apt-get install -y postgresql postgresql-contrib
 sudo -u postgres createdb hieApp
