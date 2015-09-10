@@ -3,50 +3,92 @@
   <div class="form-header">
 
   </div>
-  <div class="form-main">
-    <form class="form">
+  <div class="form-main" ng-app="hieFormApp">
+    <form class="form" ng-controller="FormController">
       <div class="date-block form-group form-inline">
         <label for="date-input">Date:</label>
-        <input ng-model="form.date" type="text" id="date-input" class="form-control">
+        <input ng-model="data.date" type="text" id="date-input" class="form-control">
       </div>
+
       <div class="form-group form-inline">
         <label for="npi-input">Provider Number (NPI):</label>
-        <input ng-model="form.npi" type="text" id="npi-input" class="form-control">
+        <input ng-model="data.npi" type="text" id="npi-input" class="form-control">
       </div>
+
       <div class="form-group">
         <label for="enrollment-action-input">Enrollment action requested:</label>
+        <div id="enrollment-action-input">
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.newProvider" value="newProvider">New provider</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.changeOfAddress" value="changeOfAddress">Change of business address</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.additionalAddress" value="additionalAddress">Additional business address</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.newTaxId" value="newTaxId">New Taxpayer ID number</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.facilityBased" value="facilityBased">Facility-Based Provider</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.clinicBased" value="clinicBased">Clinic-Based Provider</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.ownership" value="ownership">Change of ownership (per CCR, Title 22, Section 51000.6)</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.fiftyPercent" value="fiftyPercent">Cumulative change of 50 percent or more in person(s) with ownership or control interest (per CCR, Title 22, Section 51000.15)</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.sale" value="sale">Sale of assets (per CCR, Title 22, Section 51000.30)</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.currentProviderNumber" value="currentProviderNumber">I intend to use my current provider number to bill for services delivered at this location while this application request is pending. I understand that I will be on provisional provider status during this time, pursuant to CCR, Title 22, Section 51000.51</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.enrollmentAction.continuedEnrollment"  value="continuedEnrollment">Continued enrollment (Do not check this box unless you have been requested by the Department to apply for continued enrollment in the Medi-Cal program pursuant to CCR, Title 22, Section 51000.55)</label>
+          </div>
+        </div>
+        <!-- TODO: show -->
+        <div id="effective-date" ng-show="data.enrollmentAction.sale || data.enrollmentAction.fiftyPercent || data.enrollmentAction.ownership">
+          <label for="effective-date-input">Indicate effective date:</label>
+          <input type="text" id="effective-date-input" class="form-control">
+        </div>
       </div>
+
       <div class="form-group">
         <label for="type-of-entity-input">Type of entity:</label>
         <div id="type-of-entity-input">
           <div class="radio">
-            <label><input type="radio" name="type-of-entity" value="sole">Sole proprietor</label>
-
+            <label><input type="radio" ng-model="data.typeOfEntity.name" name="type-of-entity" value="sole">Sole proprietor</label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="type-of-entity" value="partnership">Partnership</label>
+            <label><input type="radio" ng-model="data.typeOfEntity.name" name="type-of-entity" value="partnership">Partnership</label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="type-of-entity" value="government">Government</label>
+            <label><input type="radio" ng-model="data.typeOfEntity.name" name="type-of-entity" value="government">Government</label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="type-of-entity" value="nonprofit">Nonprofit Corporation</label>
-            <div>
+            <label><input type="radio" ng-model="data.typeOfEntity.name" name="type-of-entity" value="nonprofit">Nonprofit Corporation</label>
+            <div ng-show="data.typeOfEntity.name === 'nonprofit'">
               <label for="nonprofit-type">Type of nonprofit:</label>
-              <input type="text" id="nonprofit-type" class="form-control">
+              <input type="text" ng-model="data.typeOfEntity.nonprofitType" id="nonprofit-type" class="form-control">
             </div>
           </div>
           <div class="radio">
-            <label><input type="radio" name="type-of-entity" value="medcorp">Professional Medical Corporation</label>
-            <div>
+            <label><input type="radio" ng-model="data.typeOfEntity.name" name="type-of-entity" value="medcorp">Professional Medical Corporation</label>
+            <div ng-show="data.typeOfEntity.name === 'medcorp'">
               <label for="medcorp-number">Corporate Number:</label>
-              <input type="text" id="medcorp-number" class="form-control">
+              <input type="text" ng-model="data.typeOfEntity.medcorpNumber" id="medcorp-number" class="form-control">
             </div>
           </div>
           <div class="radio">
-            <label><input type="radio" name="type-of-entity" value="other">Other</label>
-            <div>
-              <input type="text" id="other-name" class="form-control">
+            <label><input type="radio" ng-model="data.typeOfEntity.name" name="type-of-entity" value="other">Other</label>
+            <div ng-show="data.typeOfEntity.name === 'other'">
+              <input type="text" ng-model="data.typeOfEntity.otherName" id="other-name" class="form-control">
             </div>
           </div>
         </div>

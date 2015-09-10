@@ -13,11 +13,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.5",
-    "angular-ui-router": "ui-router#~0.2.15",
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "lodash": "~3.10.1",
-    "moment": "~2.10.6"
+    "lodash": "~3.10.1"
   }
 }

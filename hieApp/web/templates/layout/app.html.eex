@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body ng-app="hieFormApp">
+  <body>
   <!-- <body ng-app> -->
     <div class="container" role="main">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
@@ -21,5 +21,17 @@
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+    <script>
+      var hieFormApp = angular.module('hieFormApp', []);
+
+      hieFormApp.controller('FormController', function($scope) {
+        $scope.data = {
+          enrollmentAction: {},
+          typeOfEntity: {}
+        };
+      });
+    </script>
   </body>
 </html>
