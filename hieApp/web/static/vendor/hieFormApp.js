@@ -20,3 +20,5 @@ hieFormApp.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
 //       $rootScope.bodyClass = toState.bodyClass;
 //     });
 //   }]);
+
+console.log("i'm in vendor");

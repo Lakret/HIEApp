@@ -6,12 +6,50 @@
   <div class="form-main">
     <form class="form">
       <div class="date-block form-group form-inline">
-        <label for="npi-input">Date:</label>
-        <input ng-model="form.date" type="text" id="date-input" class="form-control"></input>
+        <label for="date-input">Date:</label>
+        <input ng-model="form.date" type="text" id="date-input" class="form-control">
       </div>
       <div class="form-group form-inline">
         <label for="npi-input">Provider Number (NPI):</label>
-        <input ng-model="form.npi" type="text" id="npi-input" class="form-control"></input>
+        <input ng-model="form.npi" type="text" id="npi-input" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="enrollment-action-input">Enrollment action requested:</label>
+      </div>
+      <div class="form-group">
+        <label for="type-of-entity-input">Type of entity:</label>
+        <div id="type-of-entity-input">
+          <div class="radio">
+            <label><input type="radio" name="type-of-entity" value="sole">Sole proprietor</label>
+
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="type-of-entity" value="partnership">Partnership</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="type-of-entity" value="government">Government</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="type-of-entity" value="nonprofit">Nonprofit Corporation</label>
+            <div>
+              <label for="nonprofit-type">Type of nonprofit:</label>
+              <input type="text" id="nonprofit-type" class="form-control">
+            </div>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="type-of-entity" value="medcorp">Professional Medical Corporation</label>
+            <div>
+              <label for="medcorp-number">Corporate Number:</label>
+              <input type="text" id="medcorp-number" class="form-control">
+            </div>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="type-of-entity" value="other">Other</label>
+            <div>
+              <input type="text" id="other-name" class="form-control">
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </div>
