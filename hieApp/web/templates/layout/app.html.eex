@@ -42,7 +42,8 @@
             resigned: {}
           },
           physician: {},
-          execution: {}
+          execution: {},
+          contactPerson: {}
         };
 
          $scope.$watch(

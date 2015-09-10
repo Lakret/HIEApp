@@ -488,11 +488,42 @@
           <input type="text" ng-model="data.execution.date" id="execution-date" class="form-control">
         </div>
 
+        <div>
+          <h3>Contact Person's Information</h3>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="data.contactPerson.same">Check here if you are the same person identified in item 24.</label>
+          </div>
 
+          <div ng-show="!data.contactPerson.same">
+            <label for="contact-last-name">Contact Person's last name</label>
+            <input type="text" ng-model="data.contactPerson.lastName" id="contact-last-name" class="form-control">
 
-        <label for="sllrn">State Laboratory License/Registration number</label>
-        <input type="text" ng-model="data.sllrn" id="sllrn" class="form-control">
+            <label for="contact-first-name">Contact Person's first name</label>
+            <input type="text" ng-model="data.contactPerson.firstName" id="contact-first-name" class="form-control">
 
+            <label for="contact-middle-name">Contact Person's middle name</label>
+            <input type="text" ng-model="data.contactPerson.middleName" id="contact-middle-name" class="form-control">
+
+            <label for="contact-gender">Contact Person's Gender</label>
+            <div id="contact-gender">
+              <div class="radio">
+                <label><input type="radio" ng-model="data.contactPerson.gender" name="contact-gender" value="male">Male</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" ng-model="data.contactPerson.gender" name="contact-gender" value="female">Female</label>
+              </div>
+            </div>
+
+            <label for="contact-middle-name">Contact Person's Title/Position</label>
+            <input type="text" ng-model="data.contactPerson.title" id="contact-title" class="form-control">
+          </div>
+
+          <label for="contact-email">Contact Person's E-mail address</label>
+          <input type="text" ng-model="data.contactPerson.email" id="contact-email" class="form-control">
+
+          <label for="contact-phone">Contact Person's Telephone Number</label>
+          <input type="text" ng-model="data.contactPerson.phone" id="contact-title" class="form-control">
+        </div>
         
         <div>
           {{dataAsJson}}
