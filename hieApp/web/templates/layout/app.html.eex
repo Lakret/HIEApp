@@ -33,8 +33,18 @@
           businessAddress: {},
           payToAddress: {},
           mailingAddress: {},
-          previousBusinessAddress: {}
+          previousBusinessAddress: {},
+          liabilityInsurance: {
+            agent: {}
+          }
         };
+
+         $scope.$watch(
+          "data",
+          function (newValue, oldValue) {
+            $scope.dataAsJson = JSON.stringify($scope.data);
+          },
+          true);
       });
     </script>
   </body>

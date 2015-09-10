@@ -234,8 +234,147 @@
             <input type="text" ng-model="data.previousBusinessAddress.zip" id="previous-address-zip" class="form-control">
           </div>
         </div>
+
+        <label for="medical-license">Medical license number</label>
+        <input type="text" ng-model="data.medicalLicense" id="medical-license" class="form-control">
+
+        <label for="specialities">List speciality(ies)</label>
+        <input type="text" ng-model="data.specialities" id="specialities" class="form-control">
+
+        <div class="checkbox">
+          <label><input type="checkbox" ng-model="data.boardCertified">Board certified</label>
+        </div>
+
+        <div class="checkbox">
+          <label><input type="checkbox" ng-model="data.boardEligible">Board eligible</label>
+        </div>
+
+        <label for="medicare">Medicare/Other NPI (see instructions)</label>
+        <input type="text" ng-model="data.medicare" id="medicare" class="form-control">
         
-        <!-- TODO: pt. 8, medical license -->
+        <label for="taxonomy-code1">Primary Taxonomy Code</label>
+        <input type="text" ng-model="data.taxonomyCode" id="taxonomy-code1" class="form-control">
+
+        <label for="taxonomy-code2">Taxonomy Code</label>
+        <input type="text" ng-model="data.additionalTaxonomyCode" id="taxonomy-code2" class="form-control">
+
+        <label for="taxonomy-code3">Taxonomy Code</label>
+        <input type="text" ng-model="data.additionalTaxonomyCode2" id="taxonomy-code3" class="form-control">
+
+        <label for="tin">Taxpayer Identification Number (TIN)</label>
+        <input type="text" ng-model="data.tin" id="tin" class="form-control">
+
+        <div ng-show="data.typeOfEntity.name === 'sole'">
+          <label for="tin">Social security Number - if Sole Proprietor not using a TIN, you must disclose this number</label>
+          <input type="text" ng-model="data.ssn" id="ssn" class="form-control">
+        </div>
+
+        <label for="clia">Clinical Laboratory Improvement Amendment (CLIA) certificate number</label>
+        <input type="text" ng-model="data.clia" id="clia" class="form-control">
+
+        <label for="sllrn">State Laboratory License/Registration number</label>
+        <input type="text" ng-model="data.sllrn" id="sllrn" class="form-control">
+
+        <label for="drivers-license">Driver's license or state-issued identification number and state of issurance</label>
+        <input type="text" ng-model="data.driversLicense" id="drivers-license" class="form-control">
+
+        <!-- TODO: calendar -->
+        <label for="date-of-birth">Date of birth</label>
+        <input type="text" ng-model="data.dateOfBirth" id="date-of-birth" class="form-control">
+
+        <label for="gender">Gender</label>
+        <div id="gender">
+          <div class="radio">
+            <label><input type="radio" ng-model="data.gender" name="gender" value="male">Male</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" ng-model="data.gender" name="gender" value="female">Female</label>
+          </div>
+        </div>
+
+        <label for="local-business-license">Any local business license numbers/permits</label>
+        <input type="text" ng-model="data.localBusinessLicense" id="local-business-license" class="form-control">
+
+        <label for="seller-permit">Seller's Permit number</label>
+        <input type="text" ng-model="data.sellerPermit" id="seller-permit" class="form-control">
+
+        <div>
+          <h3>Proof of Liablity Insurance</h3>
+          <h4>Applicants must attach a copy of their certificate of insurance for this address</h4>
+
+          <label for="liability-insurance-company">Name of insurance company</label>
+          <input type="text" ng-model="data.liabilityInsurance.company" id="liability-insurance-company" class="form-control">
+
+          <label for="liability-insurance-policy-number">Insurance policy number</label>
+          <input type="text" ng-model="data.liabilityInsurance.policyNumber" id="liability-insurance-policy-number" class="form-control">
+
+          <!-- TODO: calendar -->
+          <label for="liability-insurance-policy-issued-date">Date policy issued</label>
+          <input type="text" ng-model="data.liabilityInsurance.policyIssuedDate" id="liability-insurance-policy-issued-date" class="form-control">
+
+          <!-- TODO: calendar -->
+          <label for="liability-insurance-policy-expiration-date">Expiration date of policy</label>
+          <input type="text" ng-model="data.liabilityInsurance.policyExpirationDate" id="liability-insurance-policy-expiration-date" class="form-control">
+
+          <label for="liability-insurance-agent-first-name">Insurance agent's first name</label>
+          <input type="text" ng-model="data.liabilityInsurance.agent.firstName" id="liability-insurance-agent-first-name" class="form-control">
+
+          <label for="liability-insurance-agent-middle-name">Insurance agent's middle name</label>
+          <input type="text" ng-model="data.liabilityInsurance.agent.middleName" id="liability-insurance-agent-middle-name" class="form-control">
+
+          <label for="liability-insurance-agent-last-name">Insurance agent's last name</label>
+          <input type="text" ng-model="data.liabilityInsurance.agent.lastName" id="liability-insurance-agent-last-name" class="form-control">
+
+          <label for="liability-insurance-agent-title">Insurance agent's title</label>
+          <input type="text" ng-model="data.liabilityInsurance.agent.title" id="liability-insurance-agent-title" class="form-control">
+
+          <label for="liability-insurance-phone">Telephone number</label>
+          <input type="text" ng-model="data.liabilityInsurance.phone" id="liability-insurance-phone" class="form-control">
+
+          <label for="liability-insurance-fax">Fax number</label>
+          <input type="text" ng-model="data.liabilityInsurance.fax" id="liability-insurance-fax" class="form-control">
+
+          <label for="liability-insurance-email">E-mail address</label>
+          <input type="text" ng-model="data.liabilityInsurance.email" id="liability-insurance-email" class="form-control">
+        </div>
+
+        <br/>
+
+
+        <label for="worker-compensation-insurance">Does the applicant have Worker's Compensation insurance as required by state law?</label>
+        <span ng-show="data.haveWorkerCompensationInsurance !== 'na'">Attach proof of maintenance of Worker's Compansation insurance.</span>
+        <div id="worker-compensation-insurance">
+          <div class="radio">
+            <label><input type="radio" ng-model="data.haveWorkerCompensationInsurance" name="have-worker-compensation-insurance" value="yes">Yes</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" ng-model="data.haveWorkerCompensationInsurance" name="have-worker-compensation-insurance" value="no">No</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" ng-model="data.haveWorkerCompensationInsurance" name="have-worker-compensation-insurance" value="na">N/A</label>
+          </div>
+        </div>
+        <div ng-show="data.haveWorkerCompensationInsurance === 'na'">
+          <label for="worker-compensation-insurance-explanation">Provide an explanation:</label>
+          <input type="text" ng-model="data.naWorkerCompensationInsuranceExplanation" id="worker-compensation-insurance-explanation" class="form-control">
+        </div>
+
+        <div>
+          <h3>Hospital Privileges</h3>
+        </div>
+
+        <label for="sllrn">State Laboratory License/Registration number</label>
+        <input type="text" ng-model="data.sllrn" id="sllrn" class="form-control">
+
+
+
+        <label for="sllrn">State Laboratory License/Registration number</label>
+        <input type="text" ng-model="data.sllrn" id="sllrn" class="form-control">
+
+        
+        <div>
+          {{dataAsJson}}
+        </div>
       </div>
     </form>
   </div>
