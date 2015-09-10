@@ -20,10 +20,13 @@ defmodule HieApp.Router do
 
     # our app
     get "/form", FormController, :index
+
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HieApp do
-  #   pipe_through :api
-  # end
+  scope "/api", HieApp do
+    pipe_through :api
+
+    resources "/formmodels", FormModelController, except: [:new, :edit]
+  end
 end

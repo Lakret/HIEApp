@@ -22,12 +22,14 @@
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
 
     <script>
-      var hieFormApp = angular.module('hieFormApp', []);
+      var hieFormApp = angular.module('hieFormApp', ['ui.bootstrap']);
 
-      hieFormApp.controller('FormController', function($scope) {
+      hieFormApp.controller('FormController', function($scope, $http) {
         $scope.data = {
+          date: new Date(),
           enrollmentAction: {},
           typeOfEntity: {},
           businessAddress: {},
@@ -46,12 +48,50 @@
           contactPerson: {}
         };
 
-         $scope.$watch(
+        $scope.$watch(
           "data",
           function (newValue, oldValue) {
             $scope.dataAsJson = JSON.stringify($scope.data);
           },
           true);
+
+        $scope.clean = function() {
+          $scope.data = {
+            date: new Date(),
+            enrollmentAction: {},
+            typeOfEntity: {},
+            businessAddress: {},
+            payToAddress: {},
+            mailingAddress: {},
+            previousBusinessAddress: {},
+            liabilityInsurance: {
+              agent: {}
+            },
+            hospitalPrivileges: {
+              beenRevoked: {},
+              resigned: {}
+            },
+            physician: {},
+            execution: {},
+            contactPerson: {}
+          };
+        };
+
+        $scope.save = function() {
+          console.log(JSON.stringify($scope.data));
+          $http
+            .post('/api/formmodels', {form_model: {data: $scope.data}})
+            .success(function(data, status, headers, config) {
+                console.log("saved!");
+              });
+        };
+
+        // $scope.showCalendar = [false, false, false, false];
+        // $scope.openDateTime = function(e, id) {
+        //   e.preventDefault();
+        //   e.stopPropagation();
+        //   $scope.showCalendar[id] = !$scope.showCalendar[id];
+        // }
       });
     </script>
   </body>
