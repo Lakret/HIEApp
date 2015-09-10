@@ -115,6 +115,8 @@
           <input type="text" ng-model="data.fictitiousPermitDate" id="fictitious-permit-date" class="form-control">
         </div>
 
+        <br/>
+
         <div class="business-address-input">
           <label for="business-address">Business address (number, street)</label>
           <input type="text" ng-model="data.businessAddress.address" id="business-address" class="form-control">
@@ -135,23 +137,105 @@
             <label for="is-licesed-address">This address is a licensed hospital/health facility?</label>
             <div id="is-licesed-address">
               <div class="radio">
-                <label><input type="radio" ng-model="data.businessAddress.isLicensed" name="is-licesed-address" ng-value="true">Yes</label>
+                <label><input type="radio" ng-model="data.businessAddress.isLicensedHospital" name="is-licesed-address-hospital" ng-value="true">Yes</label>
               </div>
               <div class="radio">
-                <label><input type="radio" ng-model="data.businessAddress.isLicensed" name="is-licesed-address" ng-value="false">No</label>
+                <label><input type="radio" ng-model="data.businessAddress.isLicensedHospital" name="is-licesed-address-hospital" ng-value="false">No</label>
               </div>
             </div>
 
-            <div ng-show="data.businessAddress.isLicensed">
+            <div ng-show="data.businessAddress.isLicensedHospital">
               <div class="radio">
-                <label><input type="radio" ng-model="data.businessAddress.isOnlyServiceAddress" name="is-only-address" ng-value="true">All services are provided at this one facility address</label>
+                <label><input type="radio" ng-model="data.businessAddress.isOnlyServiceAddressHospital" name="is-only-address" ng-value="true">All services are provided at this one facility address</label>
               </div>
               <div class="radio">
-                <label><input type="radio" ng-model="data.businessAddress.isOnlyServiceAddress" name="is-only-address" ng-value="false">Services are provided at more than one licensed health facility</label>
+                <label><input type="radio" ng-model="data.businessAddress.isOnlyServiceAddressHospital" name="is-only-address" ng-value="false">Services are provided at more than one licensed health facility</label>
               </div>
             </div>
           </div>
         </div>
+
+        <br/>
+
+        <div ng-show="data.enrollmentAction.clinicBased" class="business-address-clinic">
+            <label for="is-licesed-address">This is a licensed primary care clinic?</label>
+            <div id="is-licesed-address">
+              <div class="radio">
+                <label><input type="radio" ng-model="data.businessAddress.isLicensedClinic" name="is-licesed-address-clinic" ng-value="true">Yes</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" ng-model="data.businessAddress.isLicensedClinic" name="is-licesed-address-clinic" ng-value="false">No</label>
+              </div>
+            </div>
+
+            <div ng-show="data.businessAddress.isLicensedClinic">
+              <div class="checkbox">
+                <label><input type="checkbox" ng-model="data.businessAddress.isOnlyServiceAddressClinic">All services are provided at this primary care clinic location only</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" ng-model="data.businessAddress.acuteCareFacilities">At acute care facilities when following patients for continuity of care</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" ng-model="data.businessAddress.onCallHospitals">At hospitals when providing "on call" coverage for Medi-Cal patients</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" ng-model="data.businessAddress.graduateProgram">As part of a graduate medical program</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+
+        <div class="payto-address-input">
+          <label for="payto-address">Pay-to address (number, street, P.O. Box Number)</label>
+          <input type="text" ng-model="data.payToAddress.address" id="payto-address" class="form-control">
+
+          <label for="payto-address-city">City</label>
+          <input type="text" ng-model="data.payToAddress.city" id="payto-address-city" class="form-control">
+
+          <label for="payto-address-state">State</label>
+          <input type="text" ng-model="data.payToAddress.state" id="payto-address-state" class="form-control">
+
+          <label for="payto-address-zip">Non-digit ZIP code</label>
+          <input type="text" ng-model="data.payToAddress.zip" id="payto-address-zip" class="form-control">
+        </div>
+
+        <br/>
+
+        <div class="mailing-address-input">
+          <label for="mailing-address">Mailing address (number, street, P.O. Box Number)</label>
+          <input type="text" ng-model="data.mailingAddress.address" id="mailing-address" class="form-control">
+
+          <label for="mailing-address-city">City</label>
+          <input type="text" ng-model="data.mailingAddress.city" id="mailing-address-city" class="form-control">
+
+          <label for="mailing-address-state">State</label>
+          <input type="text" ng-model="data.mailingAddress.state" id="mailing-address-state" class="form-control">
+
+          <label for="mailing-address-zip">Non-digit ZIP code</label>
+          <input type="text" ng-model="data.mailingAddress.zip" id="mailing-address-zip" class="form-control">
+        </div>
+
+        <br/>
+
+        <div ng-show="data.enrollmentAction.changeOfAddress">
+          <div class="previous-address-input">
+            <label for="previous-address">Previous business address (number, street)</label>
+            <input type="text" ng-model="data.previousBusinessAddress.address" id="previous-address" class="form-control">
+
+            <label for="previous-address-city">City</label>
+            <input type="text" ng-model="data.previousBusinessAddress.city" id="previous-address-city" class="form-control">
+
+            <label for="previous-address-state">State</label>
+            <input type="text" ng-model="data.previousBusinessAddress.state" id="previous-address-state" class="form-control">
+
+            <label for="previous-address-zip">Non-digit ZIP code</label>
+            <input type="text" ng-model="data.previousBusinessAddress.zip" id="previous-address-zip" class="form-control">
+          </div>
+        </div>
+        
+        <!-- TODO: pt. 8, medical license -->
       </div>
     </form>
   </div>

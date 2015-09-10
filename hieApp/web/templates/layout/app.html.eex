@@ -30,7 +30,10 @@
         $scope.data = {
           enrollmentAction: {},
           typeOfEntity: {},
-          businessAddress: {}
+          businessAddress: {},
+          payToAddress: {},
+          mailingAddress: {},
+          previousBusinessAddress: {}
         };
       });
     </script>
