@@ -37,7 +37,12 @@
           liabilityInsurance: {
             agent: {}
           },
-          hospitalPrivileges: {}
+          hospitalPrivileges: {
+            beenRevoked: {},
+            resigned: {}
+          },
+          physician: {},
+          execution: {}
         };
 
          $scope.$watch(

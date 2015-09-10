@@ -398,10 +398,95 @@
               <input type="text" ng-model="data.hospitalPrivileges.zip" id="hospital-privileges-address-zip" class="form-control">
             </div>
           </div>
+
+          <label for="hospital-privileges-been-revoked">Have your hospital privileges ever been suspended or revoked?</label>
+          <div id="hospital-privileges-been-revoked">
+            <div class="radio">
+              <label><input type="radio" ng-model="data.hospitalPrivileges.beenRevoked" name="hospital-privileges-been-revoked" ng-value="true">Yes</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" ng-model="data.hospitalPrivileges.beenRevoked" name="hospital-privileges-been-revoked" ng-value="false">No</label>
+            </div>
+          </div>
+
+          <div ng-show="data.hospitalPrivileges.beenRevoked">
+            <label for="hospital-privileges-been-revoked-name">Name of hospital</label>
+            <input type="text" ng-model="data.hospitalPrivileges.beenRevoked.hospitalName" id="hospital-privileges-been-revoked-name" class="form-control">
+
+            <label for="hospital-privileges-been-revoked-phone">Telephone number:</label>
+            <input type="text" ng-model="data.hospitalPrivileges.beenRevoked.phone" id="hospital-privileges-been-revoked-phone" class="form-control">
+            
+            <div class="hospital-privileges-been-revoked-address-input">
+              <label for="hospital-privileges-address">Address (number, street)</label>
+              <input type="text" ng-model="data.hospitalPrivileges.beenRevoked.address" id="hospital-privileges-been-revoked-address" class="form-control">
+
+              <label for="hospital-privileges-been-revoked-address-city">City</label>
+              <input type="text" ng-model="data.hospitalPrivileges.beenRevoked.city" id="hospital-privileges-been-revoked-address-city" class="form-control">
+
+              <label for="hospital-privileges-been-revoked-address-state">State</label>
+              <input type="text" ng-model="data.hospitalPrivileges.beenRevoked.state" id="hospital-privileges-been-revoked-address-state" class="form-control">
+
+              <label for="hospital-privileges-been-revoked-address-zip">Non-digit ZIP code</label>
+              <input type="text" ng-model="data.hospitalPrivileges.beenRevoked.zip" id="hospital-privileges-been-revoked-address-zip" class="form-control">
+            </div>
+          </div>
+
+          <label for="hospital-privileges-resigned">Have you ever voluntarily resigned or otherwise surrendered your hospital privileges?</label>
+          <div id="hospital-privileges-been-revoked">
+            <div class="radio">
+              <label><input type="radio" ng-model="data.hospitalPrivileges.resigned" name="hospital-privileges-resigned" ng-value="true">Yes</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" ng-model="data.hospitalPrivileges.resigned" name="hospital-privileges-resigned" ng-value="false">No</label>
+            </div>
+          </div>
+
+          <div ng-show="data.hospitalPrivileges.resigned">
+            <label for="hospital-privileges-resigned-name">Name of hospital</label>
+            <input type="text" ng-model="data.hospitalPrivileges.resigned.hospitalName" id="hospital-privileges-resigned-name" class="form-control">
+
+            <label for="hospital-privileges-resigned-phone">Telephone number:</label>
+            <input type="text" ng-model="data.hospitalPrivileges.resigned.phone" id="hospital-privileges-resigned-phone" class="form-control">
+            
+            <div class="hospital-privileges-resigned-address-input">
+              <label for="hospital-privileges-address">Address (number, street)</label>
+              <input type="text" ng-model="data.hospitalPrivileges.resigned.address" id="hospital-privileges-resigned-address" class="form-control">
+
+              <label for="hospital-privileges-resigned-address-city">City</label>
+              <input type="text" ng-model="data.hospitalPrivileges.resigned.city" id="hospital-privileges-resigned-address-city" class="form-control">
+
+              <label for="hospital-privileges-resigned-address-state">State</label>
+              <input type="text" ng-model="data.hospitalPrivileges.resigned.state" id="hospital-privileges-resigned-address-state" class="form-control">
+
+              <label for="hospital-privileges-resigned-address-zip">Non-digit ZIP code</label>
+              <input type="text" ng-model="data.hospitalPrivileges.resigned.zip" id="hospital-privileges-resigned-address-zip" class="form-control">
+            </div>
+          </div>
         </div>
 
-        <label for="sllrn">State Laboratory License/Registration number</label>
-        <input type="text" ng-model="data.sllrn" id="sllrn" class="form-control">
+        <div>
+          <h3>Provider Agreement</h3>
+          <h4>I declare ...</h4>
+
+          <label for="physician-last-name">Physician last name</label>
+          <input type="text" ng-model="data.physician.lastName" id="physician-last-name" class="form-control">
+
+          <label for="physician-first-name">Physician first name</label>
+          <input type="text" ng-model="data.physician.firstName" id="physician-first-name" class="form-control">
+
+          <label for="physician-middle-name">Physician middle name</label>
+          <input type="text" ng-model="data.physician.middleName" id="physician-middle-name" class="form-control">
+
+          <label for="execution-city">Executed at city</label>
+          <input type="text" ng-model="data.execution.city" id="execution-city" class="form-control">
+
+          <label for="execution-state">Executed at state</label>
+          <input type="text" ng-model="data.execution.state" id="execution-state" class="form-control">
+
+          <!-- TODO: calendar -->
+          <label for="execution-date">Executed on date</label>
+          <input type="text" ng-model="data.execution.date" id="execution-date" class="form-control">
+        </div>
 
 
 
