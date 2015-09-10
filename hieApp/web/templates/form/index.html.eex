@@ -93,6 +93,66 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="legal-name">Legal name of applicant or provider (as listed with the IRS):</label>
+        <input type="text" ng-model="data.legalName" id="legal-name" class="form-control">
+
+        <label for="business-name">Business name, if different:</label>
+        <input type="text" ng-model="data.businessName" id="business-name" class="form-control">
+
+        <label for="business-phone">Business telephone number:</label>
+        <input type="text" ng-model="data.businessPhone" id="business-phone" class="form-control">
+
+        <div class="checkbox">
+          <label><input type="checkbox" ng-model="data.isFictitious">Is this a fictitious business name?</label>
+        </div>
+        <div ng-show="data.isFictitious">
+          <label for="fictitious-permit">List the Fictitious Business Name Permit number:</label>
+          <input type="text" ng-model="data.fictitiousPermit" id="fictitious-permit" class="form-control">
+
+          <label for="fictitious-permit-date">Effective date:</label>
+          <input type="text" ng-model="data.fictitiousPermitDate" id="fictitious-permit-date" class="form-control">
+        </div>
+
+        <div class="business-address-input">
+          <label for="business-address">Business address (number, street)</label>
+          <input type="text" ng-model="data.businessAddress.address" id="business-address" class="form-control">
+
+          <label for="business-address-city">City</label>
+          <input type="text" ng-model="data.businessAddress.city" id="business-address-city" class="form-control">
+
+          <label for="business-address-country">Country</label>
+          <input type="text" ng-model="data.businessAddress.country" id="business-address-country" class="form-control">
+
+          <label for="business-address-state">State</label>
+          <input type="text" ng-model="data.businessAddress.state" id="business-address-state" class="form-control">
+
+          <label for="business-address-zip">Non-digit ZIP code</label>
+          <input type="text" ng-model="data.businessAddress.zip" id="business-address-zip" class="form-control">
+
+          <div ng-show="data.enrollmentAction.facilityBased" class="business-address-facility">
+            <label for="is-licesed-address">This address is a licensed hospital/health facility?</label>
+            <div id="is-licesed-address">
+              <div class="radio">
+                <label><input type="radio" ng-model="data.businessAddress.isLicensed" name="is-licesed-address" ng-value="true">Yes</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" ng-model="data.businessAddress.isLicensed" name="is-licesed-address" ng-value="false">No</label>
+              </div>
+            </div>
+
+            <div ng-show="data.businessAddress.isLicensed">
+              <div class="radio">
+                <label><input type="radio" ng-model="data.businessAddress.isOnlyServiceAddress" name="is-only-address" ng-value="true">All services are provided at this one facility address</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" ng-model="data.businessAddress.isOnlyServiceAddress" name="is-only-address" ng-value="false">Services are provided at more than one licensed health facility</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>

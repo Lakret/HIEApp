@@ -29,7 +29,8 @@
       hieFormApp.controller('FormController', function($scope) {
         $scope.data = {
           enrollmentAction: {},
-          typeOfEntity: {}
+          typeOfEntity: {},
+          businessAddress: {}
         };
       });
     </script>
