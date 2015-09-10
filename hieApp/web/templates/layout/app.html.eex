@@ -36,7 +36,8 @@
           previousBusinessAddress: {},
           liabilityInsurance: {
             agent: {}
-          }
+          },
+          hospitalPrivileges: {}
         };
 
          $scope.$watch(

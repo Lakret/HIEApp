@@ -361,6 +361,43 @@
 
         <div>
           <h3>Hospital Privileges</h3>
+
+          <label for="hospital-privileges">Do you have current hospital privileges?</label>
+          <div id="hospital-privileges">
+            <div class="radio">
+              <label><input type="radio" ng-model="data.hospitalPrivileges.status" name="hospital-privileges" ng-value="true">Yes</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" ng-model="data.hospitalPrivileges.status" name="hospital-privileges" ng-value="false">No</label>
+            </div>
+          </div>
+
+          <div ng-show="!data.hospitalPrivileges.status">
+            <label for="hospital-privileges-explanation">Please explain:</label>
+            <input type="text" ng-model="data.hospitalPrivileges.explanation" id="hospital-privileges-explanation" class="form-control">
+          </div>
+
+          <div ng-show="data.hospitalPrivileges.status">
+            <label for="hospital-privileges-name">Name of hospital</label>
+            <input type="text" ng-model="data.hospitalPrivileges.hospitalName" id="hospital-privileges-name" class="form-control">
+
+            <label for="hospital-privileges-phone">Telephone number:</label>
+            <input type="text" ng-model="data.hospitalPrivileges.phone" id="hospital-privileges-phone" class="form-control">
+            
+            <div class="hospital-privileges-address-input">
+              <label for="hospital-privileges-address">Address (number, street)</label>
+              <input type="text" ng-model="data.hospitalPrivileges.address" id="hospital-privileges-address" class="form-control">
+
+              <label for="hospital-privileges-address-city">City</label>
+              <input type="text" ng-model="data.hospitalPrivileges.city" id="hospital-privileges-address-city" class="form-control">
+
+              <label for="hospital-privileges-address-state">State</label>
+              <input type="text" ng-model="data.hospitalPrivileges.state" id="hospital-privileges-address-state" class="form-control">
+
+              <label for="hospital-privileges-address-zip">Non-digit ZIP code</label>
+              <input type="text" ng-model="data.hospitalPrivileges.zip" id="hospital-privileges-address-zip" class="form-control">
+            </div>
+          </div>
         </div>
 
         <label for="sllrn">State Laboratory License/Registration number</label>
